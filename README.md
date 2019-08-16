@@ -107,12 +107,6 @@ class Demo extends React.Component {
 ##### `componentClassName : string` [optional] [default:'notif']
 > The base className for each Notif component. Can be used to override CSS styles.
 
-##### `transitionEnterTimeout : integer` [optional] [default:600]
-> Define the react-transition-group enter timeout is milliseconds.
-
-##### `transitionLeaveTimeout : integer` [optional] [default:600]
-> Define the react-transition-group leave timeout is milliseconds.
-
 ##### `actionLabel : string`
 > Label for action click
 
