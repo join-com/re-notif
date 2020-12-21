@@ -1,5 +1,5 @@
 {
-  "name": "redux-notifications",
+  "name": "@join-com/redux-notifications",
   "version": "4.0.1",
   "description": "Redux & React based Notifications center",
   "scripts": {
@@ -12,14 +12,17 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/indexiatech/re-notif.git"
+    "url": "https://github.com/join-com/re-notif.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Indexia Technologies, ltd.",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/indexiatech/re-notif/issues"
+    "url": "https://github.com/join-com/re-notif/issues"
   },
-  "homepage": "http://indexiatech.github.io/re-notif",
+  "homepage": "https://github.com/join-com/re-notif",
   "dependencies": {
     "object-assign": "^4.1.1",
     "prop-types": "^15.5.10"
@@ -43,9 +46,9 @@
     "express": "^4.14.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^4.0.0",
     "react-transform-hmr": "^1.0.1",
     "redux": "^3.6.0",
-    "react-redux": "^4.0.0",
     "redux-devtools": "^3.3.1",
     "redux-thunk": "^2.1.0",
     "rimraf": "^2.5.2",
