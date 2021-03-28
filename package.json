@@ -10,6 +10,7 @@
     "prepublish": "npm run lint && npm run build"
   },
   "main": "lib/index.js",
+  "files": ["lib"],
   "repository": {
     "type": "git",
     "url": "https://github.com/join-com/re-notif.git"
@@ -25,7 +26,8 @@
   "homepage": "https://github.com/join-com/re-notif",
   "dependencies": {
     "object-assign": "^4.1.1",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react-transition-group": "^4.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -44,10 +46,11 @@
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "eslint-plugin-react": "^5.2.0",
     "express": "^4.14.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-redux": "^4.0.0",
     "react-transform-hmr": "^1.0.1",
+    "react-transition-group": "^4.3.0",
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.1",
     "redux-thunk": "^2.1.0",
@@ -58,8 +61,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0",
-    "react-dom": "^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0",
+    "react": "^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0 || ^17.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0 || ^17.0.0",
     "react-redux": ">=4.0.0"
   }
 }
