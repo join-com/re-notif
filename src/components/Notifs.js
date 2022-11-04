@@ -34,6 +34,8 @@ const Notifs = (props) => {
         key={getter(notification, 'id')}
         id={getter(notification, 'id')}
         message={getter(notification, 'message')}
+        title={getter(notification, 'title')}
+        description={getter(notification, 'description')}
         kind={getter(notification, 'kind')}
       />
     </CSSTransition>
