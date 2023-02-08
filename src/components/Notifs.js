@@ -36,6 +36,7 @@ const Notifs = (props) => {
         message={getter(notification, 'message')}
         title={getter(notification, 'title')}
         description={getter(notification, 'description')}
+        link={getter(notification, 'link')}
         kind={getter(notification, 'kind')}
       />
     </CSSTransition>
