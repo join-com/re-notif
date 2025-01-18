@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Notif = ({ kind, componentClassName, actionLabel, onActionClick, id, message }) => {
+const Notif = ({ kind = 'info', componentClassName, actionLabel, onActionClick, id, message }) => {
   const handleActionClick = (ev) => {
     ev.preventDefault();
 
@@ -26,27 +25,6 @@ const Notif = ({ kind, componentClassName, actionLabel, onActionClick, id, messa
       <div className={`${componentClassName}__close`} />
     </div>
   );
-};
-
-Notif.defaultProps = {
-  kind: 'info',
-};
-
-Notif.propTypes = {
-  id: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  message: PropTypes.node.isRequired,
-  kind: PropTypes.oneOf([
-    'success',
-    'info',
-    'warning',
-    'danger',
-  ]).isRequired,
-  componentClassName: PropTypes.string,
-  onActionClick: PropTypes.func,
-  actionLabel: PropTypes.string,
 };
 
 export default Notif;
