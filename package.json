@@ -1,6 +1,6 @@
 {
   "name": "@join-com/redux-notifications",
-  "version": "4.0.1-custom-build9",
+  "version": "4.0.1-custom-build8",
   "description": "Redux & React based Notifications center",
   "scripts": {
     "start": "cd demo && webpack-dev-server --config webpack.config.js --progress --colors --port 9000",

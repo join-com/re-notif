@@ -12,7 +12,6 @@ const NotifItem = ({ notification, componentClassName, timeout, CustomComponent,
 
   return (
     <CSSTransition
-      key={getter(notification, 'id')}
       classNames={`${componentClassName}-transition`}
       timeout={timeout}
       nodeRef={nodeRef}
@@ -54,7 +53,6 @@ const Notifs = (props) => {
         enter: transitionEnterTimeout,
         exit: transitionLeaveTimeout
       }}
-      {...props}
     />
     )
   );
