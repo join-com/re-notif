@@ -6,32 +6,6 @@ import Notif from './Notif';
 // This checks to see if object is immutable and properly access it
 const getter = (obj, propName) => (obj.get ? obj.get(propName) : obj[propName]);
 
-const NotifItem = ({ notification, componentClassName, timeout, CustomComponent, ...props }) => {
-  const nodeRef = React.useRef(null);
-  const NotifComponent = CustomComponent || Notif;
-
-  return (
-    <CSSTransition
-      classNames={`${componentClassName}-transition`}
-      timeout={timeout}
-      nodeRef={nodeRef}
-    >
-      <NotifComponent
-        {...props}
-        ref={nodeRef}
-        componentClassName={componentClassName}
-        key={getter(notification, 'id')}
-        id={getter(notification, 'id')}
-        message={getter(notification, 'message')}
-        title={getter(notification, 'title')}
-        description={getter(notification, 'description')}
-        link={getter(notification, 'link')}
-        kind={getter(notification, 'kind')}
-      />
-    </CSSTransition>
-  );
-};
-
 const Notifs = (props) => {
   const {
     notifications,
@@ -42,18 +16,29 @@ const Notifs = (props) => {
     transitionLeaveTimeout = 600,
   } = props;
 
+  const NotifComponent = CustomComponent || Notif;
 
   const renderedNotifications = notifications.map((notification, i) => (
-    <NotifItem
+    <CSSTransition
       key={getter(notification, 'id') || `key-${i}`}
-      notification={notification}
-      CustomComponent={CustomComponent}
-      componentClassName={componentClassName}
+      classNames={`${componentClassName}-transition`}
       timeout={{
         enter: transitionEnterTimeout,
         exit: transitionLeaveTimeout
       }}
-    />
+    >
+      <NotifComponent
+        {...props}
+        componentClassName={componentClassName}
+        key={getter(notification, 'id')}
+        id={getter(notification, 'id')}
+        message={getter(notification, 'message')}
+        title={getter(notification, 'title')}
+        description={getter(notification, 'description')}
+        link={getter(notification, 'link')}
+        kind={getter(notification, 'kind')}
+      />
+    </CSSTransition>
     )
   );
 
