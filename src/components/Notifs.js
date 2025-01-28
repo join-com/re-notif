@@ -6,29 +6,19 @@ import Notif from './Notif';
 // This checks to see if object is immutable and properly access it
 const getter = (obj, propName) => (obj.get ? obj.get(propName) : obj[propName]);
 
-const Notifs = (props) => {
-  const {
-    notifications,
-    className = null,
-    componentClassName = 'notif',
-    CustomComponent = null,
-    transitionEnterTimeout = 600,
-    transitionLeaveTimeout = 600,
-  } = props;
-
+const NotifItem = ({ notification, componentClassName, timeout, CustomComponent, ...props }) => {
+  const nodeRef = React.useRef(null);
   const NotifComponent = CustomComponent || Notif;
 
-  const renderedNotifications = notifications.map((notification, i) => (
+  return (
     <CSSTransition
-      key={getter(notification, 'id') || `key-${i}`}
       classNames={`${componentClassName}-transition`}
-      timeout={{
-        enter: transitionEnterTimeout,
-        exit: transitionLeaveTimeout
-      }}
+      timeout={timeout}
+      nodeRef={nodeRef}
     >
       <NotifComponent
         {...props}
+        ref={nodeRef}
         componentClassName={componentClassName}
         key={getter(notification, 'id')}
         id={getter(notification, 'id')}
@@ -39,6 +29,31 @@ const Notifs = (props) => {
         kind={getter(notification, 'kind')}
       />
     </CSSTransition>
+  );
+};
+
+const Notifs = (props) => {
+  const {
+    notifications,
+    className = null,
+    componentClassName = 'notif',
+    CustomComponent = null,
+    transitionEnterTimeout = 600,
+    transitionLeaveTimeout = 600,
+  } = props;
+
+
+  const renderedNotifications = notifications.map((notification, i) => (
+    <NotifItem
+      key={getter(notification, 'id') || `key-${i}`}
+      notification={notification}
+      CustomComponent={CustomComponent}
+      componentClassName={componentClassName}
+      timeout={{
+        enter: transitionEnterTimeout,
+        exit: transitionLeaveTimeout
+      }}
+    />
     )
   );
 
