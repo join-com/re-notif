@@ -18,7 +18,12 @@ const Notifs = (props) => {
 
   const NotifComponent = CustomComponent || Notif;
 
-  const renderedNotifications = notifications.map((notification, i) => (
+  const notificationsWithRefs = React.useMemo(() => notifications.map((notification) => ({
+    notification,
+    ref: React.createRef(null),
+  })), [notifications]);
+
+  const renderedNotifications = notificationsWithRefs.map(({ notification, ref }, i) => (
     <CSSTransition
       key={getter(notification, 'id') || `key-${i}`}
       classNames={`${componentClassName}-transition`}
@@ -26,9 +31,11 @@ const Notifs = (props) => {
         enter: transitionEnterTimeout,
         exit: transitionLeaveTimeout
       }}
+      nodeRef={ref}
     >
       <NotifComponent
         {...props}
+        ref={ref}
         componentClassName={componentClassName}
         key={getter(notification, 'id')}
         id={getter(notification, 'id')}
